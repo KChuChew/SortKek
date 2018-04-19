@@ -101,8 +101,26 @@ std::cout << "\n";
   	//std::cin >> choice;
   	std::cin >> choice;
 		std::cout << choice << "\n"; 
- 		choice = std::stoi(choice);	
-	 
+ 		if(choice == "exit") {
+      break;
+    }
+    if(choice.length() > 1) {
+      std::cout << "Please enter valid option\n";
+      continue;
+    }
+    if(choice.length() == 1) {
+      char c = choice[0];
+std::cerr << "CHOICE NOT JUDGED " << c << "\n";
+      if(c != 'b' && c != 's' && c != 'q' && c != 'm' && c != 'i') {
+        std::cout << "Please enter valid option\n";
+        continue;
+      }
+    }
+    char c = choice[0];
+std::cerr << "CORRECT CHOICE " << c << "\n";
+    //choice = std::stoi(choice);	
+	
+  /* 
   	switch (choice) {
     	case 'b':
       	to_sort = bubble_sort(to_sort);
@@ -122,7 +140,7 @@ std::cout << "\n";
    
     	default:
 				std::cout << "Please choose a sorting algorithm from above\n";  
-		}
+		}*/
 	}
   
   //std::cout << "Sorting 
