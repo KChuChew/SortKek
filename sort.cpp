@@ -120,27 +120,31 @@ std::cerr << "CHOICE NOT JUDGED " << c << "\n";
 std::cerr << "CORRECT CHOICE " << c << "\n";
     //choice = std::stoi(choice);	
 	
-  /* 
-  	switch (choice) {
+  	switch (c) {
     	case 'b':
-      	to_sort = bubble_sort(to_sort);
-      	break;
+      	//to_sort = bubble_sort(to_sort);
+        std::cout << "Begin Bubble Sorting\n";
+        break;
     
     	case 's':
-      	break;
+      	std::cout << "Begin Selection Sorting\n";
+        break;
    
     	case 'q':
-      	break;
+        std::cout << "Begin Quick Sorting\n";	
+        break;
    
     	case 'm': 
-      	break;
+      	std::cout << "Begin Merge Sorting\n";
+        break;
    
     	case 'i':
-      	break;
+      	std::cout << "Begin Insertion Sorting\n";
+        break;
    
     	default:
 				std::cout << "Please choose a sorting algorithm from above\n";  
-		}*/
+		}
 	}
   
   //std::cout << "Sorting 
