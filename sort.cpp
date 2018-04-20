@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <chrono>
 #include <climits>
 
 /* 
@@ -97,7 +98,13 @@ std::cout << to_sort[i] << " ";
   }
 std::cout << "\n";
 	while(true) {
-  	std::cout << "Sort with which algorithm? : bubble sort (b), selection sort (s), quick sort (q), merge sort (m), insertion sort (i), or type exit when done testing.\n"; 
+  	std::cout << "Sort with which algorithm? :\n" 
+                 "bubble sort (b),\n" 
+                 "selection sort (s),\n"
+                 "quick sort (q),\n" 
+                 "merge sort (m),\n" 
+                 "insertion sort (i),\n" 
+                 "OR type exit when done testing.\n"; 
   	//std::cin >> choice;
   	std::cin >> choice;
 		std::cout << choice << "\n"; 
@@ -121,11 +128,21 @@ std::cerr << "CORRECT CHOICE " << c << "\n";
     //choice = std::stoi(choice);	
 	
   	switch (c) {
-    	case 'b':
+    	case 'b': {
       	//to_sort = bubble_sort(to_sort);
         std::cout << "Begin Bubble Sorting\n";
+        auto start = std::chrono::high_resolution_clock::now();
+        std::vector<int> output = bubble_sort(to_sort);
+        auto stop = std::chrono::high_resolution_clock::now();
+        auto dur = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+        std::cout << "Time taken by Bubble Sort: " << dur.count() << " milliseconds.\n";
+        std::cout << "Output Vector \n";
+        for(unsigned int i = 0; i < output.size(); ++i) {
+          std::cout << output[i] << " "; 
+        }
+        std::cout << "\n";
         break;
-    
+      }
     	case 's':
       	std::cout << "Begin Selection Sorting\n";
         break;
@@ -147,29 +164,5 @@ std::cerr << "CORRECT CHOICE " << c << "\n";
 		}
 	}
   
-  //std::cout << "Sorting 
-
-/*
-  cout << "Enter integers " << endl;
-
-  while(cin >> s) {   
-    to_sort.push_back(s);
-  } 
-
-cerr << "test" << endl;
-cerr << to_sort.size() << endl;
-  
-  to_sort = bubble_sort(to_sort);
-
-cerr << "Sorted Array: " << endl;
-  
-  for(unsigned int i = 0; i < to_sort.size(); i++) {
-    cerr << to_sort[i] << " "; 
-  }
-  
-cerr << endl;
-*/
-  //char * word = "null"; 
-//std::cerr << word[4] << "a";  
   return 0;
 }
