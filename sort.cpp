@@ -1,54 +1,5 @@
 /* ayy lmao */
-#include <iostream>
-#include <vector>
-#include <string>
-#include <chrono>
-#include <climits>
-
-/* 
- * Bubble Sort: O(n^2)
- */
-std::vector<int> bubble_sort(std::vector<int> to_sort) {
-
-  int holder = 0;
-
-  for(int j = 0; j < to_sort.size() - 1; j++) {  
-    for(int i = 0; i < to_sort.size() - j -1; i++) {
-      if(to_sort[i] > to_sort[i+1]) {
-        holder = to_sort[i];
-	      to_sort[i] = to_sort[i+1];
-	      to_sort[i+1] = holder;
-      }
-    }
-  }
-  
-  return to_sort;
-}
-
-/*
- * Insertion Sort: O(n^2)
- */
-std::vector<int> insertion_sort(std::vector<int> to_sort) {
-
-}
-
-/*
- * Selection Sort: O(n^2)
- */
-std::vector<int> selection_sort(std::vector<int> to_sort) {
-}
-
-
-/*
- * Merge Sort: O(nlogn)
- */
-std::vector<int> merge_sort(std::vector<int> to_sort) {
-
-
-
-
-  return to_sort;
-}
+#include "sort_algos.hpp"
 
 inline bool isInteger(const std::string & s) {
    if(s.empty() || ((!isdigit(s[0])) && (s[0] != '-') && (s[0] != '+'))) return false ;
@@ -67,8 +18,9 @@ int main(int argc, char * argv[]) {
   //char choice;
   std::string s, choice;
   std::string algo, complexity;
-
-  std::cout << "Enter integer to sort OR type exit to finalize list.\n"; 
+  int quantity = 0;
+  int val_limit = 0;
+  //std::cout << "Enter integer to sort OR type exit to finalize list.\n"; 
 
   
   /*while(!std::cin.fail()) {
