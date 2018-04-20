@@ -9,6 +9,8 @@
 #include <string>
 #include <chrono>
 #include <climits>
+#include <cstdlib>
+#include <algorithm>
 
 #ifndef SORT_ALGOS_HPP_INCLUDED 
 #define SORT_ALGOS_HPP_INCLUDED
