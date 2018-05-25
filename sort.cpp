@@ -1,6 +1,8 @@
 /*
- * Name: sort.cpp
- *
+ * Info: Kevin Chu : 25 May 2018 : 牛樓 
+ * FileName: sort.cpp
+ * Description: File contains controls for user input and
+ *              calling various sorting functions.
  *
  */
 #include "sort_algos.hpp"
@@ -8,7 +10,8 @@
 /*
  * Name: is_integer
  * Description: This function checks if a specific string is an integer.
- *
+ * Parameters: s - string to be determined if integer
+ * Return: bool - true if s is integer false if s not integer
  */
 inline bool is_integer(const std::string & s) {
    if(s.empty() || ((!isdigit(s[0])) && (s[0] != '-') && (s[0] != '+'))) return false ;
@@ -21,13 +24,22 @@ inline bool is_integer(const std::string & s) {
 
 /*
  * Name: get_rand_int
- * Description: Produces a random integer between vals 0 to passed in limit. 
- *
+ * Description: Generates a random integer between vals 0 to passed in limit. 
+ * Parameters: limit - integer value for upper limit of integer to generate
+ *                     value limited from 0 <= x <= limit.
+ * Return: randomly generated integer
  */
 inline int get_rand_int(unsigned int limit) {
   return (std::rand() % limit);
 }
 
+/*
+ * Name: main
+ * Description: Main control function for calling sort algos.
+ * Parameters: argc - # of command line args (not used)
+ *             argv - vector of command line inputs (not used)
+ * Return: 0 (on user exit)
+ */
 int main(int argc, char * argv[]) {
   
   std::string s, choice;
@@ -82,7 +94,6 @@ int main(int argc, char * argv[]) {
  
   std::cout << "just nyolo me\n";
   std::vector<int> to_sort; // empty initialized vector to input rand vals to sort
-  //std::cout << to_sort.size() << "\n";
   for(unsigned int i = 0; i < quantity; ++i) {
     int r = std::rand() % limit;
     to_sort.push_back(r);
