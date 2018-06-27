@@ -26,10 +26,6 @@ std::vector<int> bubble_sort(std::vector<int> to_sort) {
  * Insertion Sort: O(n^2)
  */
 std::vector<int> insertion_sort(std::vector<int> to_sort) {
-  for(int i = 0; i < to_sort.size(); ++i) {
-    std::cout << to_sort[i] << " ";
-  }
-  std::cout << "\n";
   for(int i = 1; i < to_sort.size(); ++i) {
     int counter = i - 1;
     int ele = to_sort[i];
@@ -44,14 +40,25 @@ std::vector<int> insertion_sort(std::vector<int> to_sort) {
 }
 
 /*
- * Merge Sort: O(nlogn)
+ * Selection Sort: O(n^2)
  */
-std::vector<int> merge_sort(std::vector<int> to_sort) {
+std::vector<int> selection_sort(std::vector<int> to_sort) {
+  int min_index;  
+  for(int i = 0; i < to_sort.size(); ++i) {
+    min_index = i;
+    for(int j = i + 1; j < to_sort.size(); ++j) {
+      if(to_sort[j] < to_sort[min_index]) {
+        min_index = j;
+      }
+    }
+    std::swap(to_sort[min_index], to_sort[i]);
+  }
   return to_sort;
 }
 
 /*
- * Selection Sort: O(n^2)
+ * Merge Sort: O(nlogn)
  */
-std::vector<int> selection_sort(std::vector<int> to_sort) {
+std::vector<int> merge_sort(std::vector<int> to_sort) {
+
 }
