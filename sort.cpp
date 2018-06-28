@@ -91,7 +91,6 @@ int main(int argc, char * argv[]) {
     }
   }
  
-  std::cout << "just nyolo me\n";
   std::vector<int> to_sort; // empty initialized vector to input rand vals to sort
   for(unsigned int i = 0; i < quantity; ++i) {
     int r = std::rand() % limit;
