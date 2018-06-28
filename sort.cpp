@@ -153,10 +153,21 @@ int main(int argc, char * argv[]) {
         std::cout << "\n";
         break;
       } 
-      case 'q':
+      case 'q': {
         std::cout << "Begin Quick Sorting\n";	
+        auto start = std::chrono::high_resolution_clock::now();
+        std::vector<int> t = to_sort;
+        std::vector<int> output = quick_sort(t, 0, t.size() - 1);
+        auto stop = std::chrono::high_resolution_clock::now();
+        auto dur = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+        std::cout << "Time taken by Quick Sort: " << dur.count() << " microseconds.\n";
+        std::cout << "Output Vector \n";
+        for(unsigned int i = 0; i < output.size(); ++i) {
+          std::cout << output[i] << " "; 
+        }
+        std::cout << "\n";
         break;
-   
+      } 
       case 'm': 
     	  std::cout << "Begin Merge Sorting\n";
         break;

@@ -55,20 +55,39 @@ std::vector<int> selection_sort(std::vector<int> to_sort) {
   }
   return to_sort;
 }
-/*
- * 
- *
- *
- *
- */
-void partition(std::vector<int> & to_sort, int low, int high) {
 
+/*
+ * Name: partition
+ * Description: Helper function for quick_sort. Function takes in pivot point 
+ *              in to_sortay (last element) and partitions to_sortay such that all elements
+ *              less than pivot val appear before pivot val and elements greater than 
+ *              pivot val appear after pivot val.
+ * Parameters: to_sort - to_sortay of values to parition
+ *             low - first index to start partitioning
+ *             high - last index to start paritioning
+ * Return: index of partitioned element 
+ */
+int partition(std::vector<int> & to_sort, int low, int high) {
+  int pivot = to_sort[high];
+  int i = low - 1;
+  for(int j = low; j <= high - 1; ++j) {
+    if(to_sort[j] <= pivot) {
+      i++;
+      std::swap(to_sort[i], to_sort[j]);
+    }
+  }
+  std::swap(to_sort[i + 1], to_sort[high]);
+  return (i + 1);
 }
 /*
  * Quick Sort: O(nlogn)
  */
-std::vector<int> quick_sort(std::vector<int> to_sort) {
-
+std::vector<int> quick_sort(std::vector<int> & to_sort, int low, int high) {
+  if(low < high) {
+    int part = partition(to_sort, low, high);
+    quick_sort(to_sort, low, part - 1);
+    quick_sort(to_sort, part + 1, high);
+  }
   return to_sort;
 }
 
