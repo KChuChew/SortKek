@@ -55,6 +55,22 @@ std::vector<int> selection_sort(std::vector<int> to_sort) {
   }
   return to_sort;
 }
+/*
+ * 
+ *
+ *
+ *
+ */
+void partition(std::vector<int> & to_sort, int low, int high) {
+
+}
+/*
+ * Quick Sort: O(nlogn)
+ */
+std::vector<int> quick_sort(std::vector<int> to_sort) {
+
+  return to_sort;
+}
 
 /*
  * Merge Sort: O(nlogn)

@@ -98,86 +98,86 @@ int main(int argc, char * argv[]) {
     to_sort.push_back(r);
   }
   while(1) {
-  std::cout << "Sort with which algorithm? :\n" 
-               "bubble sort (b),\n" 
-               "selection sort (s),\n"
-               "quick sort (q),\n" 
-               "merge sort (m),\n" 
-               "insertion sort (i),\n" 
-               "OR type exit when done testing.\n"; 
- 	std::cin >> choice;
-	std::cout << choice << "\n"; 
- 	if(choice == "exit") {
-    break;
-  }
-  if(choice.length() > 1) {
-    std::cout << "Please enter valid option\n";
-    continue;
-  }
-  if(choice.length() == 1) {
-    char c = choice[0];
-    if(c != 'b' && c != 's' && c != 'q' && c != 'm' && c != 'i') {
+    std::cout << "Sort with which algorithm? :\n" 
+                 "bubble sort (b),\n" 
+                 "selection sort (s),\n"
+                 "quick sort (q),\n" 
+                 "merge sort (m),\n" 
+                 "insertion sort (i),\n" 
+                 "OR type exit when done testing.\n"; 
+ 	  std::cin >> choice;
+	  std::cout << choice << "\n"; 
+ 	  if(choice == "exit") {
+      break;
+    }
+    if(choice.length() > 1) {
       std::cout << "Please enter valid option\n";
       continue;
     }
-  }
-  char c = choice[0];
-std::cerr << "CORRECT CHOICE " << c << "\n";
-
-	switch (c) {
-   	case 'b': {
-      std::cout << "Begin Bubble Sorting\n";
-      auto start = std::chrono::high_resolution_clock::now();
-      std::vector<int> output = bubble_sort(to_sort);
-      auto stop = std::chrono::high_resolution_clock::now();
-      auto dur = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
-      std::cout << "Time taken by Bubble Sort: " << dur.count() << " microseconds.\n";
-      std::cout << "Output Vector \n";
-      for(unsigned int i = 0; i < output.size(); ++i) {
-        std::cout << output[i] << " "; 
+    if(choice.length() == 1) {
+      char c = choice[0];
+      if(c != 'b' && c != 's' && c != 'q' && c != 'm' && c != 'i') {
+        std::cout << "Please enter valid option\n";
+        continue;
       }
-      std::cout << "\n";
-      break;
     }
-  	case 's': {
-    	std::cout << "Begin Selection Sorting\n";
-      auto start = std::chrono::high_resolution_clock::now();
-      std::vector<int> output = selection_sort(to_sort);
-      auto stop = std::chrono::high_resolution_clock::now();
-      auto dur = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
-      std::cout << "Time taken by Selection Sort: " << dur.count() << " microseconds.\n";
-      std::cout << "Output Vector \n";
-      for(unsigned int i = 0; i < output.size(); ++i) {
-        std::cout << output[i] << " "; 
+    char c = choice[0];
+//std::cerr << "CORRECT CHOICE " << c << "\n";
+
+	  switch (c) {
+   	  case 'b': {
+        std::cout << "Begin Bubble Sorting\n";
+        auto start = std::chrono::high_resolution_clock::now();
+        std::vector<int> output = bubble_sort(to_sort);
+        auto stop = std::chrono::high_resolution_clock::now();
+        auto dur = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+        std::cout << "Time taken by Bubble Sort: " << dur.count() << " microseconds.\n";
+        std::cout << "Output Vector \n";
+        for(unsigned int i = 0; i < output.size(); ++i) {
+          std::cout << output[i] << " "; 
+        }
+        std::cout << "\n";
+        break;
       }
-      std::cout << "\n";
-      break;
-    } 
-    case 'q':
-      std::cout << "Begin Quick Sorting\n";	
-      break;
+  	  case 's': {
+    	  std::cout << "Begin Selection Sorting\n";
+        auto start = std::chrono::high_resolution_clock::now();
+        std::vector<int> output = selection_sort(to_sort);
+        auto stop = std::chrono::high_resolution_clock::now();
+        auto dur = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+        std::cout << "Time taken by Selection Sort: " << dur.count() << " microseconds.\n";
+        std::cout << "Output Vector \n";
+        for(unsigned int i = 0; i < output.size(); ++i) {
+          std::cout << output[i] << " "; 
+        }
+        std::cout << "\n";
+        break;
+      } 
+      case 'q':
+        std::cout << "Begin Quick Sorting\n";	
+        break;
    
-    case 'm': 
-    	std::cout << "Begin Merge Sorting\n";
-      break;
+      case 'm': 
+    	  std::cout << "Begin Merge Sorting\n";
+        break;
    
-    case 'i': {
-      std::cout << "Begin Insertion Sorting\n";
-      auto start = std::chrono::high_resolution_clock::now();
-      std::vector<int> output = insertion_sort(to_sort);
-      auto stop = std::chrono::high_resolution_clock::now();
-      auto dur = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
-      std::cout << "Time taken by Insertion Sort: " << dur.count() << " microseconds.\n";
-      std::cout << "Output Vector \n";
-      for(unsigned int i = 0; i < output.size(); ++i) {
-        std::cout << output[i] << " "; 
-      }
-      std::cout << "\n";
-      break;
-    } 
-    default:
-			std::cout << "Please choose a sorting algorithm from above\n";  
-	}
+      case 'i': {
+        std::cout << "Begin Insertion Sorting\n";
+        auto start = std::chrono::high_resolution_clock::now();
+        std::vector<int> output = insertion_sort(to_sort);
+        auto stop = std::chrono::high_resolution_clock::now();
+        auto dur = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+        std::cout << "Time taken by Insertion Sort: " << dur.count() << " microseconds.\n";
+        std::cout << "Output Vector \n";
+        for(unsigned int i = 0; i < output.size(); ++i) {
+          std::cout << output[i] << " "; 
+        }
+        std::cout << "\n";
+        break;
+      } 
+      default:
+			  std::cout << "Please choose a sorting algorithm from above\n";  
+	  }
   }  
   return 0;
 }
