@@ -91,9 +91,53 @@ std::vector<int> quick_sort(std::vector<int> & to_sort, int low, int high) {
   return to_sort;
 }
 
+void merge(std::vector<int> & to_sort, int low, int med, int high) {
+  int i, j, k;
+  int l1 = med - low + 1;
+  int l2 = high - med;
+  std::vector<int> L(l1, 0), R(l2, 0);
+
+  for(i = 0; i < l1; ++i)
+    L[i] = to_sort[low + i];
+  for(i = 0; i < l2; ++i)
+    R[i] = to_sort[med + 1 + i];
+  i = 0;
+  j = 0;
+  k = low;
+  while(i < l1 && j < l2) {
+    if(L[i] <= R[j]) {
+      to_sort[k] = L[i];
+      i++;
+    }
+    else {
+      to_sort[k] = R[j];
+      j++;
+    }
+    k++;
+  }
+
+  while(i < l1) {
+    to_sort[k] = L[i];
+    i++;
+    k++;
+  }
+  while(j < l2) {
+    to_sort[k] = R[j];
+    j++;
+    k++;
+  }
+}
 /*
  * Merge Sort: O(nlogn)
  */
-std::vector<int> merge_sort(std::vector<int> to_sort) {
+std::vector<int> merge_sort(std::vector<int> & to_sort, int low, int high) {
+  if(low < high) {
+    int med = low + (high - low) / 2;
 
+    merge_sort(to_sort, low, med);
+    merge_sort(to_sort, med + 1, high);
+
+    merge(to_sort, low, med, high);
+  }
+  return to_sort;
 }
